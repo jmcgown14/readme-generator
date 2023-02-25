@@ -1,8 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateREADME = ({ title, }) =>
-    `# ${title}
+const generateREADME = ({ title, description, install, usage, collaborators, thirdparty}) =>
+`# ${title}
 
 ## Description
 
@@ -17,22 +17,29 @@ ${description}
 
 ## Needed Software
 
-${step - one},
-${step - two},
+${install},
 
-## Usage
+>## Usage
 
->${usage}
+${usage}
 
 ## Credits
 
 Collaborators worked with: ${collaborators}
-Third-Party used: ${third-party}
+Third-Party used: ${thirdparty}
 
 ## License
 
+${license}
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).`;
+## Test
+
+To run the project, use this: ${test} in the command line.
+
+## Questions
+
+If you have any questions you can reach out on my github page [${github}](${githubURL})
+You can also reach out via [email](mailto:${email}).`;
 
 inquirer
     .prompt([
@@ -48,13 +55,8 @@ inquirer
         },
         {
             type: 'input',
-            name: 'step-one',
+            name: 'install',
             message: 'What command can be run in terminal to install software to be able to run your program?',
-        },
-        {
-            type: 'input',
-            name: 'step-two',
-            message: 'What command can be run in terminal to install specific software needed for your program?',
         },
         {
             type: 'input',
@@ -68,30 +70,35 @@ inquirer
         },
         {
             type: 'input',
-            name: 'thrid-party',
-            message: 'Please list any Third-Party names you used for your project, if none used, type "none"',
+            name: 'thridparty',
+            message: 'Please list any Third-Party names you used for your project, if none used, type "none".',
         },
-        // {
-        //     type: 'list',
-        //     name: 'license',
-        //     message: 'Which license did you choose for your project?',
-        //     choices: []
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'github',
-        //     message: 'Enter your GitHub Username',
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'github',
-        //     message: 'Enter your GitHub Username',
-        // },
-        // {
-        //     type: 'input',
-        //     name: 'linkedin',
-        //     message: 'Enter your LinkedIn URL.',
-        // },
+        {
+            type: 'list',
+            name: 'license',
+            message: 'Which license did you choose for your project?',
+            choices: ['MIT', 'Apache 2.0', 'GNU General Public v3.0']
+        },
+        {
+            type: 'input',
+            name: 'test',
+            message: 'Please enter what command is need in the terminal to run your project.',
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: 'Enter your GitHub Username.',
+        },
+        {
+            type: 'input',
+            name: 'githubURL',
+            message: 'Enter your GitHub Profile URL.',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter your email address.',
+        },
     ])
     .then((answers) => {
         const readmePageContent = generateREADME(answers);

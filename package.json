@@ -19,6 +19,6 @@
   "homepage": "https://github.com/jmcgown14/readme-generator#readme",
   "dependencies": {
     "badges": "^4.27.0",
-    "inquirer": "^8.2.4"
+    "inquirer": "8.2.4"
   }
 }
