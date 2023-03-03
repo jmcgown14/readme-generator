@@ -1,8 +1,8 @@
-# asdfasdf
+# Readme Generator
 
 ## Description
 
-asdfasd
+I want to generator a professional readme so that I can quickly create a readme for a new project
 
 ## Table of Contents
 
@@ -13,24 +13,24 @@ asdfasd
 
 ## Needed Software
 
-asdfasdf,
+npm i,
 
 >## Usage
 
-dfasdfas
+When I am prompted for information about my applciaiton  then I e will input the data. WHen I fill inthe descirption then each section will be filled.
 
 ## Credits
 
-Collaborators worked with: asdfasdf
+Collaborators worked with: Katherine Renier
 Third-Party used: undefined
 
 ## License
  - [License](#license)
 
 ## License 
-  [![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Questions
 
-If you have any questions you can reach out on my github page [asdfasd](asdfasdf)
-You can also reach out via [email](mailto:asdfasd).
+If you have any questions you can reach out on my github page [jmcgown14](www.github.com/jmcgown14)
+You can also reach out via [email](mailto:jmac3292@gmail.com).
