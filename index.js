@@ -1,7 +1,22 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateREADME = ({ title, description, install, usage, collaborators, thirdparty}) =>
+function renderLicense(license) {
+    switch (license) {
+      case "MIT":
+        return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+      case "IBM":
+        return "[![License: IPL 1.0](https://img.shields.io/badge/License-IPL_1.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)";
+      case "Mozilla":
+        return "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)";
+      case "ISC":
+        return "[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)";
+      case "None":
+        return "";
+    }
+  }
+
+const generateREADME = ({ title, description, install, usage, collaborators, thirdparty, license, github, githubURL, email}) =>
 `# ${title}
 
 ## Description
@@ -29,12 +44,10 @@ Collaborators worked with: ${collaborators}
 Third-Party used: ${thirdparty}
 
 ## License
+${license === "none" ? "" : " - [License](#license)"}
 
-${license}
-
-## Test
-
-To run the project, use this: ${test} in the command line.
+${license === "None" ? "" : "## License"} 
+  ${renderLicense(license)}
 
 ## Questions
 
@@ -77,12 +90,7 @@ inquirer
             type: 'list',
             name: 'license',
             message: 'Which license did you choose for your project?',
-            choices: ['MIT', 'Apache 2.0', 'GNU General Public v3.0']
-        },
-        {
-            type: 'input',
-            name: 'test',
-            message: 'Please enter what command is need in the terminal to run your project.',
+            choices: ['MIT', 'Mozilla', 'IBM', 'ISC']
         },
         {
             type: 'input',
